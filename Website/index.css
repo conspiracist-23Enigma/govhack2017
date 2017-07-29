@@ -115,11 +115,29 @@ p {
 	width: 90%;
 	margin: auto;
 	text-align:right;
+	color: #9BD1E5;
+	transition: .5s ease;
+}
+
+#quoteLine p {
+		transition: .5s ease;
+}
+
+#quoteLine:hover #quote{
+	color: black;
+	transition: .5s ease;
+}
+
+#quoteLine:hover p{
+	color: black;
+	transition: .5s ease;
 }
 
 #quote {
+	transition: .5s ease;
 	font-size: 40px;
 	text-align:left;
+	color: #9BD1E5
 }
 
 .quotation {
@@ -131,8 +149,8 @@ p {
 footer {
 	background-color: #9BD1E5;
 	padding:5px 5px;
-	padding-left:10px
-    margin:5px;
+	padding-left:10px;
+    margin-top:50px
 	font-family: mainfont;
 	color: #F1FFFA
 }
@@ -143,8 +161,9 @@ footer {
 }
 
 .footerHR {
-	padding:0;
+	padding: 0;
 	margin: 0;
+	margin-top: 300px;
 	height: 12px;
 	background-color: #84AA47;
 	width:100%;
@@ -178,15 +197,26 @@ footer {
 
 /* everything below is for family stock photo */
 
-.container {
-  position: relative;
-  width: 50%;
+#introduction {
+	margin:auto;
+	padding-bottom: 70px;
+	margin-top: 70px;
 }
 
-.image {
+.container {
+  position: relative;
+  width: 45%;
+  float:left;
+  margin: 20px 40px 20px 20px;
+  padding-top: 10px;
+}
+
+.introductionImage {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 10px;
+  box-shadow: -30px -30px 0px #84AA47;
 }
 
 .overlay {
@@ -194,11 +224,12 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #008CBA;
+  background-color: #84AA47;
   overflow: hidden;
   width: 100%;
   height: 0;
   transition: .5s ease;
+  border-radius: 0px 0px 10px 10px
 }
 
 .container:hover .overlay {
@@ -208,7 +239,7 @@ footer {
 
 .message {
   white-space: nowrap; 
-  color: #9BD1E5;
+  color: #F1FFFA;
   font-size: 15px;
   font-family: mainfont;
   position: absolute;
@@ -218,3 +249,25 @@ footer {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+.emptySpace {
+	height:70px;
+	color: white;
+	opacity:0;
+}
+
+#introductionText {
+    margin: 20px 20px 20px 20px;
+	padding: 10px 10px 10px 10px;
+	font-family: mainfont;
+	font-size: 17px;
+	line-height: 30px;
+	text-align: justify;
+}
+
+#introductionHR {
+	background-color: #9BD1E5;
+	height: 2px;
+	border-style: none;
+	}
+	
