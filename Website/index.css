@@ -1,0 +1,67 @@
+/* 
+ Colour Schemes:
+ #84AA47 : Asparagus
+ #9BD1E5 : Pale Cerulean
+ #F1FFFA : Mint Cream
+ #CCFCCB : Tea Green
+ #96E6B3 : Teal Deer
+ 
+*/
+
+#homePicture {
+	position: relative;
+	width: 100%;
+	margin: auto;
+}
+
+#homePicture .image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.button {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+#homePicture:hover .button {
+  opacity: 1;
+}
+
+.buttonText {
+  transition: .5s ease;
+  background-color: #9BD1E5;
+  color: #F1FFFA;
+  font-size: 16px;
+  font-family: sans-serif;
+  padding: 16px 32px;
+  border: 2px solid #9BD1E5;
+  border-radius: 30px;
+}
+
+.buttonText:hover {
+	transition: .5s ease;
+	background-color: #84AA47
+}
+
+.textOnPicture {
+	position: absolute;
+	top: 48%;
+	left:50%;
+	transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+	margin:auto;
+	font-family: sans-serif;
+	font-size: 50px;
+	color: #F1FFFA;
+	text-shadow: -1px 0 #84AA47, 0 1px #84AA47, 1px 0 #84AA47, 0 -1px #84AA47;
+}
