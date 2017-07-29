@@ -8,11 +8,52 @@
  
 */
 
+@font-face {
+    font-family: mainfont;
+    src: url("expressway rg.ttf");
+}
+
+@font-face {
+    font-family: mainserif;
+    src: url("Dustismo_Roman.ttf");
+}
+
+html, body {
+    padding:0;
+    margin:0;
+	background-color:  #F1FFFA;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	font-family: mainfont;
+}
+
+.content {
+	width:80%;
+	margin: auto;
+}
+
 #homePicture {
 	position: relative;
 	width: 100%;
 	margin: auto;
+	vertical-align:middle;
 }
+
+#indexLogo {
+	position: absolute;
+	width:20%;
+	left: 10%;
+	top:10%;
+	filter: brightness(10000%);
+	transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+	
 
 #homePicture .image {
   opacity: 1;
@@ -21,6 +62,7 @@
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
+  	vertical-align:middle;
 }
 
 .button {
@@ -42,7 +84,7 @@
   background-color: #9BD1E5;
   color: #F1FFFA;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: mainfont;
   padding: 16px 32px;
   border: 2px solid #9BD1E5;
   border-radius: 30px;
@@ -50,7 +92,8 @@
 
 .buttonText:hover {
 	transition: .5s ease;
-	background-color: #84AA47
+	filter: brightness(110%);
+	font-size: 16.7px;
 }
 
 .textOnPicture {
@@ -60,8 +103,118 @@
 	transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%)
 	margin:auto;
-	font-family: sans-serif;
+	font-family: mainfont;
 	font-size: 50px;
 	color: #F1FFFA;
 	text-shadow: -1px 0 #84AA47, 0 1px #84AA47, 1px 0 #84AA47, 0 -1px #84AA47;
+}
+
+
+#quoteLine {
+	font-size: 27px;
+	width: 90%;
+	margin: auto;
+	text-align:right;
+}
+
+#quote {
+	font-size: 40px;
+	text-align:left;
+}
+
+.quotation {
+	color: #84AA47;
+	font-size: 60px;
+	font-family: mainserif;
+}
+
+footer {
+	background-color: #9BD1E5;
+	padding:5px 5px;
+	padding-left:10px
+    margin:5px;
+	font-family: mainfont;
+	color: #F1FFFA
+}
+
+.footerContent {
+	width: 80%;
+	margin: auto;
+}
+
+.footerHR {
+	padding:0;
+	margin: 0;
+	height: 12px;
+	background-color: #84AA47;
+	width:100%;
+	margin:auto;
+	border: none !important;
+}
+
+#footerSourceButton {
+  transition: .5s ease;
+  width: 80px;
+  height: 30px;
+    margin-bottom:10px;
+  margin-top:10px;
+}
+
+#sourceButtonText {
+  transition: .5s ease;
+  background-color: #84AA47;
+  color: #F1FFFA;
+  font-size: 14px;
+  font-family: mainfont;
+  padding: 15px 15px;
+  border-radius: 30px;
+
+}
+#sourceButtonText:hover {
+	transition: .5s ease;
+	filter: brightness(125%);
+	font-size:14.5px
+}
+
+/* everything below is for family stock photo */
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  height: 10%;
+  opacity: 0.7;
+}
+
+.message {
+  white-space: nowrap; 
+  color: #9BD1E5;
+  font-size: 15px;
+  font-family: mainfont;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
