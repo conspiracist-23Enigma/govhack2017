@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="index.css"/>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="papaparse.min.js"></script>
+		<!-- Title is the text that appears on the Tab in the browser -->
+		<title> Suburban </title>
+
+
+
+	</head>
+
+	<body>
+	
+		<div id="topNavigationBar">
+		<img src="Images/logo_white.png" alt = "Logo" width=100% id="navigationBarLogo">
+			<ul>
+				<li><a href="about.html">About Us</a> </li>
+				<li><a href="suburbSelector.html">Suburbs</a></li>
+				<li><a href="index.html">Home</a> </li>
+			</ul>
+		</div>
+	
+	<div class = "content">
+	
+	<div class="clear"> </div>
+	<h2 style="margin-top: 40px"> Lawson </h2>
+		
+	
+	<div class = "clear"> </div>
+		<h3> Graph of Criminal Incidents in select Canberra Suburbs</h3>
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+	<script>
+	function parseData(createGraph) {
+	Papa.parse("../data/CrimeStats_Refined_10.csv", {
+		download: true,
+		complete: function(results) {
+			someData(results.data);
+		}
+	});
+	}
+	
+	function someData (data) {
+	var suburb = ["Suburb"];
+	var Homicide = ["Homicide"];
+	var Assault = ["Assault"];
+	var Sexual = ["Sexual Assault"];
+	var Offences = ["Offences against a person"];
+	var Burglary = ["Burglary"];
+	var Robbery = ["Robbery"];
+	var Motor = ["Motor vehicle theft"];
+	var Property = ["Property damage"];
+	var Theft = ["Theft (excluding Motor Vehicles)"];
+	var Other = ["Other offences"];
+
+	for (var i = 1; i < data.length; i++) {
+		suburb.push(data[i][0]);
+		Homicide.push(data[i][1]);
+		Assault.push(data[i][2]);
+		Sexual.push(data[i][3]);
+		Offences.push(data[i][4]);
+		Burglary.push(data[i][5]);
+		Robbery.push(data[i][6]);
+		Motor.push(data[i][7]);
+		Property.push(data[i][8]);
+		Theft.push(data[i][11]);
+		Other.push(data[i][9]);
+	}
+
+	console.log(suburb);
+	console.log(Homicide);
+	console.log(Assault);
+	console.log(Sexual);	
+	console.log(Offences);
+	console.log(Burglary);	
+	console.log(Robbery);
+	console.log(Motor);	
+	console.log(Property);
+	console.log(Theft);
+	console.log(Other);
+	
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+	  type: 'bar',
+	  data: {
+		labels: suburb,
+		datasets: [{
+			label: 'Assault',
+			data: Assault,
+			backgroundColor: [
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Sexual',
+			data: Sexual,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Theft',
+			data: Theft,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Offences against a person',
+			data: Offences,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Burglary',
+			data: Burglary,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Robbery',
+			data: Robbery,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Motor Vehicle theft',
+			data: Motor,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Property Damage',
+			data: Property,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },		  
+		  {
+			label: 'Homicide',
+			data: Homicide,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Other Offences',
+			data: Other,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  }
+		]
+	  },
+	  options: {
+		scales: {
+		  yAxes: [{
+			stacked: true,
+			ticks: {
+			  beginAtZero: true
+			}
+		  }],
+		  xAxes: [{
+			stacked: true,
+			ticks: {
+			  beginAtZero: true
+			}
+		  }]
+
+		}
+	  }
+	});
+	}
+	
+	parseData(someData);
+</script>
+
+	<h3> Number of Criminal Incidents + Traffic Incidents</h3>
+	<p> 28 </p>
+
+	<h3> Population of Suburb </h3>
+	<p> 803 Inhabitants </p>
+	
+	<h3> Criminal Incidents per 1000 people </h3>
+	<p> 0 Incidents per 1000 people</p>
+	
+	<h3> Area of Suburb </h3>
+	<p> 4399365.09 m2 </p>
+	
+	<h3> College Priority Placement</h3>
+	<p> LAKE GINNINDERRA COLLEGE </p>
+	
+	<h3> High School Priority Placement </h3>
+	<p> KALEEN HIGH SCHOOL </p>
+	
+	<h3> Primary School  Priority Placement </h3>
+	<p> MARIBYRNONG </p>
+	
+	<h3> Suburban Livability Ranking </h3>
+	<p> 7 of 93 suburbs in ACT </p>
+	
+	
+	</div>
+	
+	
+	<br>
+	<hr class = "footerHR">
+	<footer>
+		<div class = "footerContent">
+			<p class = "footerText"> This website was made for the Suburban project for GovHack 2017 by 
+				team FennerBoiz. All images used were under Creative Commons License.
+			</p>
+
+			<div id = "footerSourceButton">
+				<a href="sources.html">
+				<div id= "sourceButtonText">Sources</div>
+				</a>
+			</div>
+
+			<br>
+			<p class = "footerText">	Website designed by Septian Razi </p>
+			
+		</div>
+	</footer>
+
+
+	</body>
+</html>

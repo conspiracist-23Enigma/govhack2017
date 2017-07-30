@@ -18,6 +18,10 @@
     src: url("Dustismo_Roman.ttf");
 }
 
+.clear {
+	clear: both;
+}
+
 html, body {
     padding:0;
     margin:0;
@@ -35,8 +39,10 @@ p {
 .content {
 	width:80%;
 	margin: auto;
+	padding-top:50px;
 }
 
+/*below is styles for main picture on index page*/
 #homePicture {
 	position: relative;
 	width: 100%;
@@ -44,12 +50,11 @@ p {
 	vertical-align:middle;
 }
 
-#indexLogo {
+#indexLogoHome {
 	position: absolute;
-	width:20%;
+	width:240px;
 	left: 10%;
-	top:10%;
-	filter: brightness(10000%);
+	top:5%;
 	transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
@@ -109,11 +114,13 @@ p {
 	text-shadow: -1px 0 #84AA47, 0 1px #84AA47, 1px 0 #84AA47, 0 -1px #84AA47;
 }
 
+/*below is quote on index page styles */ 
 
 #quoteLine {
 	font-size: 27px;
 	width: 90%;
 	margin: auto;
+	padding-top:0px;
 	text-align:right;
 	color: #9BD1E5;
 	transition: .5s ease;
@@ -146,6 +153,8 @@ p {
 	font-family: mainserif;
 }
 
+/* below is style for footer elements */
+
 footer {
 	background-color: #9BD1E5;
 	padding:5px 5px;
@@ -172,11 +181,11 @@ footer {
 }
 
 #footerSourceButton {
-  transition: .5s ease;
-  width: 80px;
-  height: 30px;
-    margin-bottom:10px;
-  margin-top:10px;
+	transition: .5s ease;
+	width: 80px;
+	height: 30px;
+	margin-bottom:10px;
+	margin-top:10px;
 }
 
 #sourceButtonText {
@@ -268,6 +277,221 @@ footer {
 #introductionHR {
 	background-color: #9BD1E5;
 	height: 2px;
-	border-style: none;
-	}
+	border: none;
+}
 	
+#suburbSelectorButton {
+	background-color: #9BD1E5;
+	color: #F1FFFA;
+	padding: 15px 15px 15px 15px;
+	border-radius: 30px;
+	margin:auto;
+	font-family: mainfont;
+	transition: .5s ease;
+}
+
+#suburbSelectorButton:hover {
+	transition: .5s ease;
+	filter: brightness(103%);
+	font-size: 17px;
+}
+
+/*below is styles for navigation bar*/
+
+#topNavigationBar {
+	background-color: #84AA47;
+	position: fixed;
+	display:inline-block;
+	top:0px;
+	width:100%;
+	z-index:1000;
+}
+#topNavigationBar ul{
+	float:right;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+	background-color: #84AA47;
+	width:50%;
+	display:inline-block;
+}
+
+#topNavigationBar li{
+	display:inline;
+	float: right;
+	background-color: #84AA47;
+	height: 40px;
+	vertical-align: center;
+}
+
+#topNavigationBar a {
+	display: block;
+	color: #F1FFFA ;
+	font-weight: Bold;
+	font-family: mainfont;
+	text-align: center;
+	padding: 17px;
+	width: 100px;
+	text-decoration: none;
+	transition: 0.5s ease;
+	height:28px;
+	line-height: 28px;
+}
+
+#topNavigationBar li a:hover {
+    background-color: #9BD1E5 ;
+	transition: 0.5s ease;
+}
+
+#navigationBarLogo {
+	float: left;
+	width: 240px;
+}
+
+/* below is for the team profiles */
+#aboutUs {
+	padding-top: 40px;
+	text-align: justify;
+}
+#team {
+	padding-top: 40px;
+	margin-bottom: 30px;
+	margin: auto;
+}
+
+h2 {
+	font-family:mainfont;
+	font-size:49px;
+	color: #84AA47 ;
+	margin: auto;
+	text-align:center;
+	padding-bottom: 30px
+}
+.teamMember {
+	width:29%;
+	position: relative;
+	margin-left:20px;
+    margin-right:20px;
+	float: left;
+}
+
+.teamMember.hover {
+	width: 31%;
+	background-color: #84AA47;
+	margin-left: 10px;
+	margin-right: 10px;
+	transition: 0.5s ease;
+}
+
+.teamMember:hover {
+	width: 31%;
+	margin-left: 10px;
+	margin-right: 10px;
+	transition: 0.5s ease;
+}
+
+.teamMember:hover .containerProfile{
+	width:100%;
+	transition: .5s ease;
+	border-left: 2px #84AA47
+}
+
+.teamMember:hover .textProfile{
+	font-size: 21px;
+	transition: .5s ease;
+}
+
+
+.containerProfile:hover .overlayProfile {
+  opacity: 0.7;
+  	transition: .5s ease;
+}
+
+.containerProfile:hover .textProfile {
+  opacity: 2;
+  	transition: .5s ease;
+}
+.containerProfile {
+  position: relative;
+  border-radius: 50%;
+  float: left;
+  transition: .5s ease;
+  box-shadow: -10px -10px 0px #9BD1E5 ;
+}
+
+.imageProfile {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.overlayProfile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #9BD1E5 ;
+  border-radius: 50%;
+}
+
+.textProfile {
+  color: white;
+  font-size: 20px;
+  font-family: mainfont;
+  text-align:center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.teamDescription {
+	padding-top: 20px;
+	clear: left;
+	text-align:justify;
+	line-height: 25px
+}
+
+.degree {
+	font-family:mainserif;
+	font-size: 18px;
+	color: #9BD1E5 ;
+	text-align: left;
+}
+
+/* scroll menu in suburbSelector */
+.vertical-menu {
+    width: 80%; /* Set a width if you like */
+    height: 250px;
+    overflow-y: auto;
+	margin:auto;
+	margin-top: 20px;
+	border-radius:20px;
+}
+
+.vertical-menu a {
+    background-color: #9BD1E5 ; /* Grey background color */
+    color: #F1FFFA ; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+	font-family: mainfont;
+	text-align: center;
+	
+}
+
+.vertical-menu a:hover {
+    background-color:  #84AA47; /* Dark grey background on mouse-over */
+}
+
+h3 {
+	font-family: mainserif;
+	color: #84AA47;
+}
