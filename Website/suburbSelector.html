@@ -34,6 +34,7 @@
 	<h2 style="margin-top: 40px"> Select a Suburb </h2>
 	<div class="vertical-menu">
 	  <a href="belconnen.html">Belconen</a>
+<<<<<<< HEAD
 	  <a href="braddon.html">Braddon</a>
 	  <a href="city.html">City</a>
 	  <a href="curtin.html">Curtin</a>
@@ -44,11 +45,317 @@
 	  <a href="o'connor.html">O'Connor</a>
 	  <a href="turner..html">Turner</a>
 	  <a href="weston.html">Weston</a>
+=======
+	  <a href="#">Braddon</a>
+	  <a href="#">City</a>
+	  <a href="#">Curtin</a>
+	  <a href="#">Dickson</a>
+	  <a href="#">Gungahlin</a>
+	  <a href="#">Lawson</a>
+	  <a href="#">Lyneham</a>
+	  <a href="#">O'Connor</a>
+	  <a href="#">Turner</a>
+	  <a href="#">Weston</a>
+>>>>>>> 58bea7c1524c2a9fca51e716b86e926228f0253f
 	</div>
 		
 	
 	<div class = "clear"> </div>
 	
+<<<<<<< HEAD
+=======
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+	<script>
+	function parseData(createGraph) {
+	Papa.parse("../data/CrimeStats_Refined_10.csv", {
+		download: true,
+		complete: function(results) {
+			someData(results.data);
+		}
+	});
+	}
+	
+	function someData (data) {
+	var suburb = ["Suburb"];
+	var Homicide = ["Homicide"];
+	var Assault = ["Assault"];
+	var Sexual = ["Sexual Assault"];
+	var Offences = ["Offences against a person"];
+	var Burglary = ["Burglary"];
+	var Robbery = ["Robbery"];
+	var Motor = ["Motor vehicle theft"];
+	var Property = ["Property damage"];
+	var Theft = ["Theft (excluding Motor Vehicles)"];
+	var Other = ["Other offences"];
+
+	for (var i = 1; i < data.length; i++) {
+		suburb.push(data[i][0]);
+		Homicide.push(data[i][1]);
+		Assault.push(data[i][2]);
+		Sexual.push(data[i][3]);
+		Offences.push(data[i][4]);
+		Burglary.push(data[i][5]);
+		Robbery.push(data[i][6]);
+		Motor.push(data[i][7]);
+		Property.push(data[i][8]);
+		Theft.push(data[i][11]);
+		Other.push(data[i][9]);
+	}
+
+	console.log(suburb);
+	console.log(Homicide);
+	console.log(Assault);
+	console.log(Sexual);	
+	console.log(Offences);
+	console.log(Burglary);	
+	console.log(Robbery);
+	console.log(Motor);	
+	console.log(Property);
+	console.log(Theft);
+	console.log(Other);
+	
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+	  type: 'bar',
+	  data: {
+		labels: suburb,
+		datasets: [{
+			label: 'Assault',
+			data: Assault,
+			backgroundColor: [
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)',
+			  'rgba(255, 99, 132, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)',
+			  'rgba(255,99,132,1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Sexual',
+			data: Sexual,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Theft',
+			data: Theft,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Offences against a person',
+			data: Offences,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  {
+			label: 'Burglary',
+			data: Burglary,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Robbery',
+			data: Robbery,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Motor Vehicle theft',
+			data: Motor,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Property Damage',
+			data: Property,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },		  
+		  {
+			label: 'Homicide',
+			data: Homicide,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  },
+		  		  {
+			label: 'Other Offences',
+			data: Other,
+			backgroundColor: [
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)',
+			  'rgba(255, 159, 64, 0.2)'
+			],
+			borderColor: [
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)',
+			  'rgba(255, 159, 64, 1)'
+			],
+			borderWidth: 2
+		  }
+		]
+	  },
+	  options: {
+		scales: {
+		  yAxes: [{
+			stacked: true,
+			ticks: {
+			  beginAtZero: true
+			}
+		  }],
+		  xAxes: [{
+			stacked: true,
+			ticks: {
+			  beginAtZero: true
+			}
+		  }]
+
+		}
+	  }
+	});
+	}
+	
+	parseData(someData);
+</script>
+	
+>>>>>>> 58bea7c1524c2a9fca51e716b86e926228f0253f
 	</div>
 	
 	
