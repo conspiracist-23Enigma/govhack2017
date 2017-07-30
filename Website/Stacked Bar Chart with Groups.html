@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://www.chartjs.org/samples/latest/charts/bar/stacked-group.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Stacked Bar Chart with Groups</title>
+    <script async="" src="http://www.google-analytics.com/analytics.js"></script><script src="./Stacked Bar Chart with Groups_files/Chart.bundle.js.download"></script>
+    <script src="./Stacked Bar Chart with Groups_files/utils.js.download"></script>
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="width: 75%"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" src="./Stacked Bar Chart with Groups_files/saved_resource.html"></iframe>
+        <canvas id="canvas" width="798" height="399" style="display: block; height: 266px; width: 532px;"></canvas>
+    </div>
+    <button id="randomizeData">Randomize Data</button>
+    <script>
+        var barChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: 'Dataset 1',
+                backgroundColor: window.chartColors.red,
+                stack: 'Stack 0',
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ]
+            }, {
+                label: 'Dataset 2',
+                backgroundColor: window.chartColors.blue,
+                stack: 'Stack 0',
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ]
+            }, {
+                label: 'Dataset 3',
+                backgroundColor: window.chartColors.green,
+                stack: 'Stack 1',
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ]
+            }]
+
+        };
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    title:{
+                        display:true,
+                        text:"Chart.js Bar Chart - Stacked"
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    responsive: true,
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+        };
+
+        document.getElementById('randomizeData').addEventListener('click', function() {
+            barChartData.datasets.forEach(function(dataset, i) {
+                dataset.data = dataset.data.map(function() {
+                    return randomScalingFactor();
+                });
+            });
+            window.myBar.update();
+        });
+    </script>
+
+
+
+</body></html>
